@@ -11,17 +11,12 @@ const NAV_LINKS = [
 ];
 
 export default function Header() {
-  const scrolled = useScrollHeader(20);
   const location = useLocation();
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-card/95 backdrop-blur-sm shadow-sm border-b border-border"
-          : "bg-transparent"
-      }`}
+      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-card/95 backdrop-blur-sm shadow-sm border-b border-border"
     >
       <div className="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
         <Link to="/" className="flex flex-col" onClick={() => setMobileOpen(false)}>
@@ -38,11 +33,10 @@ export default function Header() {
             <Link
               key={link.to}
               to={link.to}
-              className={`link-underline text-sm tracking-wide transition-colors duration-200 ${
-                location.pathname === link.to
+              className={`link-underline text-sm tracking-wide transition-colors duration-200 ${location.pathname === link.to
                   ? "text-primary font-medium"
                   : "text-muted-foreground hover:text-foreground"
-              }`}
+                }`}
             >
               {link.label}
             </Link>
@@ -73,11 +67,10 @@ export default function Header() {
                 key={link.to}
                 to={link.to}
                 onClick={() => setMobileOpen(false)}
-                className={`text-base py-1 ${
-                  location.pathname === link.to
+                className={`text-base py-1 ${location.pathname === link.to
                     ? "text-primary font-medium"
                     : "text-muted-foreground"
-                }`}
+                  }`}
               >
                 {link.label}
               </Link>
